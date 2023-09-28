@@ -67,10 +67,11 @@ add_filter('directorist_search_field_template', 'override_search_widgets_templat
 function override_search_widgets_template_category_field($template, $field_data)
 {
     $data['data'] = $field_data;
-
+    /*
     if ('search-form/fields/category' == $template) {
         $template = dir_loc_hier_get_template($template, $data);
     }
+    */
     if ('search-form/fields/location' == $template) {
         $template = dir_loc_hier_get_template($template, $data);
     }
@@ -81,7 +82,7 @@ function override_search_widgets_template_category_field($template, $field_data)
 /**
  * JS SNIPPET
  */
-
+/*
 add_action('wp_footer', function () {
 ?>
     <script type="text/javascript">
@@ -131,7 +132,7 @@ add_action('wp_footer', function () {
     </script>
 <?php
 });
-
+*/
 
 /**
  * JS SNIPPET LOCATION
@@ -157,7 +158,7 @@ add_action('wp_footer', function () {
 
                 // Get a reference to the Select2 element
                 var select2Element = $('select[name="in_state"]');
-                var cityElement = $('select[name="in_loc"]');
+                var cityElement = $('select[name="in_city"]');
 
                 // Clear existing options from the Select2 element
                 select2Element.empty();
@@ -183,7 +184,8 @@ add_action('wp_footer', function () {
                     data: newOptions
                 });
 
-
+                // Set Current Value
+                $('input[name="in_loc"]').val($(this).val());
             });
 
             // $('select[nasme="in_country"]').on('change', function(e) {
@@ -203,7 +205,7 @@ add_action('wp_footer', function () {
                 }
 
                 // Get a reference to the Select2 element
-                var select2Element = $('select[name="in_loc"]');
+                var select2Element = $('select[name="in_city"]');
 
                 // Clear existing options from the Select2 element
                 select2Element.empty();
@@ -228,7 +230,13 @@ add_action('wp_footer', function () {
                     data: newOptions
                 });
 
+                // Set Current Value
+                $('input[name="in_loc"]').val($(this).val());
+            });
 
+            $('select[name="in_city"]').on('change', function() {
+                // Set Current Value
+                $('input[name="in_loc"]').val($(this).val());
             });
         })
     </script>

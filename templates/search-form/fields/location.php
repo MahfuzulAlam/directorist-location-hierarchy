@@ -91,7 +91,7 @@ foreach ($parents as $parent) {
 <div class="directorist-search-field">
     <div class="directorist-select directorist-search-location">
         <input type="hidden" id="location_city" value='<?php echo json_encode($cities); ?>' />
-        <select name="in_loc" class="<?php echo esc_attr($searchform->location_class); ?>" data-placeholder="City" <?php echo !empty($data['required']) ? 'required="required"' : ''; ?> data-isSearch="true" data-selected-id="<?php echo esc_attr($selected_item['id']); ?>" data-selected-label="<?php echo esc_attr($selected_item['label']); ?>">
+        <select name="in_city" class="<?php echo esc_attr($searchform->location_class); ?>" data-placeholder="City" <?php echo !empty($data['required']) ? 'required="required"' : ''; ?> data-isSearch="true" data-selected-id="<?php echo esc_attr($selected_item['id']); ?>" data-selected-label="<?php echo esc_attr($selected_item['label']); ?>">
             <option value="0">City</option>
             <?php
             foreach ($city_options as $city_option) {
@@ -103,3 +103,5 @@ foreach ($parents as $parent) {
         </select>
     </div>
 </div>
+
+<input type="hidden" value="" name="in_loc" />
